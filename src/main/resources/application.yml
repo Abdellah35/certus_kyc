@@ -1,0 +1,114 @@
+logging:
+  level:
+    ROOT: INFO
+
+server:
+  port: 9000
+  compression:
+    enabled: true
+    mime-types: text/html,text/xml,text/plain,text/css, application/javascript, application/json
+    min-response-size: 1024
+
+eureka:
+  client:
+    enabled: true
+    healthcheck:
+      enabled: true
+    registerWithEureka: true
+    fetchRegistry: true
+    service-url:
+      defaultZone: http://localhost:9761/eureka/
+  server:
+    enable-self-preservation: false
+    peer-node-read-timeout-ms: 10000000
+
+#eureka.client.service-url.default-zone: http://localhost:9761/eureka
+# This token must be encoded using Base64 (you can type `echo 'secret-key'|base64` on your command line)
+shuaicj.security.jwt.secret: NjRjNDliOTk1Y2U1M2MzNzcxMjVhZmYxZjFkMzNkMDk0MTExMTlmMzI2NDQ0NzIzZGQ2OTY2ZDJlYzJkNTYzYTQ4ZjZmYmM1MjM5YmY4Mjk3NzUxOGY3NjVlZWZjZWNjZDUwYjMzOWRhZGVmZGU2MDg3Y2NiNzY3NmNlNTQzNDk=
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 6MB
+      max-request-size: 6MB
+      enabled: true
+  application:
+    name: certus-kyc-documents-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/certus_core_db?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: Abdes3536
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    jdbcUrl: ${spring.datasource.url}
+  kycdatasource:
+    url: jdbc:mysql://localhost:3306/kyc_db?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: Abdes3536
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    jdbcUrl: ${spring.kycdatasource.url}
+  mongodb:
+    host: localhost
+    port: 27017
+  jpa:
+    hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+    hibernate.ddl-auto: update
+    show-sql: true
+  queries:
+    users-query: select username, password, enabled from users where username=?
+    roles-query: select username, authority from authorities where username=?
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: xxxxx@xxxx.com
+    password: xxxxxx
+    protocol: smtp
+    tls: true
+    debug: true
+    properties:
+      "mail.transport.protocol": smtp
+      "mail.smtp.auth": true
+      "mail.smtp.starttls.enable": true
+  logging:
+    logstash: # Forward logs to logstash over a socket, used by LoggingConfiguration
+      enabled: false
+      host: localhost
+      port: 5000
+      queue-size: 512
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 1000000
+        readTimeout: 1000000
+        loggerLevel: full
+  hystrix:
+    enabled: false
+
+
+base:
+  url: http://ge-staging-vm.eastus.cloudapp.azure.com
+
+#digitalipv:
+#  imagedir: ./certus/digital_ipv
+
+
+digitalipv:
+  imagedir: /usr/share/nginx/html/certus-user-service/digital-ipv/
+  relativedir: /certus-user-service/uploadlogo/
+
+user:
+  image:
+    dir: /usr/share/nginx/html/certus-user-service/uploadlogo/
+  logodir: /certus-user-service/uploadlogo/
+  nginx:
+    dir: /usr/share/nginx/html/certus-kyc-documents-service/attachment-images/
+  attachdir: /certus-kyc-documents-service/attachment-images/
+
+certus-mailbox:
+
+  #ge-cc-list: hitesh@growthenabler.com,ram@growthenabler.com
+  certus-bcc-list: sales@softedgesolution.com,info@certussecure.com
+
+
+

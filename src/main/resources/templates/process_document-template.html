@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Certus</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<p>Hi <span th:text="${name}"/>, </p>
+
+
+<p> <span th:text="${company}"/> has processed your KYC documents. For verification status update, please <a th:href="${login_url}">click here</a>.
+</p>
+
+
+
+<p>Thank you,<br/>
+    Certus Team<br/>
+    please do not respond to this message. This is a system generated email.<br/>
+</p>
+
+
+</body>
+</html>

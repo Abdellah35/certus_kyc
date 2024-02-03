@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Certus</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<p>Hi <span th:text="${username}"/>,</p>
+
+<p> <span th:text="${company}"/> requests you to submit your Documents. Please  <a th:href="${otp_registration_url}">Click here</a> to register and submit your documents.
+</p>
+
+
+<p>Thank you,<br/>
+    Certus Team<br/>
+    please do not respond to this message. This is a system generated email.<br/>
+</p>
+
+
+</body>
+</html>
