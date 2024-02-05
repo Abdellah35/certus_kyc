@@ -87,7 +87,7 @@ feign:
 
 
 base:
-  url: http://ge-staging-vm.eastus.cloudapp.azure.com
+  url: http://134.122.105.202
 
 #digitalipv:
 #  imagedir: ./certus/digital_ipv
