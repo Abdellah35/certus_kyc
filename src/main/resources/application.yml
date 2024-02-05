@@ -37,13 +37,13 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/certus_core_db?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
-    password: Abdes3536
+    password: 1985Bot5wana
     driver-class-name: com.mysql.cj.jdbc.Driver
     jdbcUrl: ${spring.datasource.url}
   kycdatasource:
     url: jdbc:mysql://localhost:3306/kyc_db?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
-    password: Abdes3536
+    password: 1985Bot5wana
     driver-class-name: com.mysql.cj.jdbc.Driver
     jdbcUrl: ${spring.kycdatasource.url}
   mongodb:
