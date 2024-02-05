@@ -3,7 +3,7 @@ logging:
     ROOT: INFO
 
 server:
-  port: 9002
+  port: 8800
   compression:
     enabled: true
     mime-types: text/html,text/xml,text/plain,text/css, application/javascript, application/json
