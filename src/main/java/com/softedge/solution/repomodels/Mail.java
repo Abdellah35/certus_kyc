@@ -1,5 +1,6 @@
 package com.softedge.solution.repomodels;
 
+import io.github.pixee.security.ObjectInputFilters;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -127,6 +128,7 @@ public class Mail implements Serializable {
         try {
             ByteArrayInputStream bis = new ByteArrayInputStream(body);
             ObjectInputStream ois = new ObjectInputStream(bis);
+            ObjectInputFilters.enableObjectFilterIfUnprotected(ois);
             obj = (Mail) ois.readObject();
             ois.close();
             bis.close();
