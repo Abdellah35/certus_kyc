@@ -2,6 +2,7 @@ package com.softedge.solution.commons;
 
 import com.softedge.solution.exceptionhandlers.custom.Utilities.FileStorageException;
 import com.softedge.solution.exceptionhandlers.errorcodes.ErrorCodeUtilityEnum;
+import io.github.pixee.security.Filenames;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.Resource;
@@ -25,7 +26,7 @@ public class FileCommonUtility {
 
     public static String storeFile(MultipartFile file, Path fileStorageLocation) {
         // Normalize file name
-        String fileName = org.springframework.util.StringUtils.cleanPath(file.getOriginalFilename());
+        String fileName = org.springframework.util.StringUtils.cleanPath(Filenames.toSimpleFileName(file.getOriginalFilename()));
         String currentDate = new SimpleDateFormat("yyyyMMddHHmm").format(new Date());
         fileName = currentDate + "-" + fileName;
 

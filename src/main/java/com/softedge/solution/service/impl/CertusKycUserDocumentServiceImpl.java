@@ -27,6 +27,7 @@ import com.softedge.solution.security.util.SecurityUtils;
 import com.softedge.solution.service.CertusKycNotificationService;
 import com.softedge.solution.service.CertusKycUserDocumentService;
 import com.softedge.solution.service.certusabstractservice.CerterGenericErrorHandlingService;
+import io.github.pixee.security.Filenames;
 import org.bson.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -103,7 +104,7 @@ public class CertusKycUserDocumentServiceImpl extends CerterGenericErrorHandling
     @Override
     public ResponseEntity<?> uploadAttachmentImage(MultipartFile file) {
 
-        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+        String fileName = StringUtils.cleanPath(Filenames.toSimpleFileName(file.getOriginalFilename()));
         logger.info("Orginal file name {} ", fileName);
         String currentDate = new SimpleDateFormat("yyyyMMddHHmm").format(new Date());
         fileName = currentDate + "-" + fileName;
